@@ -44,7 +44,8 @@ export function App() {
           </p>
           <p className="my-12 flex flex-col gap-2">
             <span className="text-4xl font-bold tabular-nums md:text-6xl">
-              {formattedTotalCo2Sequestered}
+              {formattedTotalCo2Sequestered}{" "}
+              {totalCo2Sequestered > 100000000 && "🥳"}
             </span>
             <span className="text-2xl md:text-3xl">
               tons of CO<sub>2</sub> sequestered
@@ -109,10 +110,10 @@ export function App() {
         </div>
         <footer className="mx-auto grid max-w-5xl grid-cols-1 gap-4 self-end justify-self-end text-right text-sm text-white">
           <p>
-            This is pretending to have one fixed point in time where the
-            Sargassum is harvested, baled and sunk into the ocean. Also, the
-            inputs are only averages, so in the end this is just a very rough
-            and totally not accurate approximation.
+            😬 This is pretending to have one fixed point in time where the
+            Sargassum is harvested, baled and sunk into the ocean.
+            <br /> Also, the inputs are only averages, so in the end this is
+            just a very rough and totally not accurate approximation.
           </p>
           <p>
             Idea + quick code by{" "}
@@ -121,10 +122,8 @@ export function App() {
               href="https://herrsiering.de"
             >
               Markus Siering
-            </a>
-          </p>
-          <p>
-            Data + concept by{" "}
+            </a>{" "}
+            | Data + concept by{" "}
             <a
               className="text-sky-200 underline transition-colors hover:text-sky-300"
               href="https://seafields.eco"
@@ -137,6 +136,13 @@ export function App() {
               href="https://www.youtube.com/watch?v=wOJmRSRlhi4"
             >
               this talk by Dr. Mar Fernández-Méndez
+            </a>{" "}
+            |{" "}
+            <a
+              className="text-sky-200 underline transition-colors hover:text-sky-300"
+              href="https://github.com/HerrBertling/sargassum-model"
+            >
+              Code on GitHub
             </a>
           </p>
         </footer>
