@@ -20,7 +20,7 @@ export function App() {
   };
   const volumeInCubicMeters = Math.round((thickness / 100) * size * 1000000);
   const totalMassInTonnes = Math.round(weight * volumeInCubicMeters) / 1000;
-  const totalCo2Sequestered = totalMassInTonnes * 0.14;
+  const totalCo2Sequestered = Math.round(totalMassInTonnes * 0.14);
   const formattedTotalMassInTonnes = formatNumber(totalMassInTonnes);
   const formattedTotalCo2Sequestered = formatNumber(totalCo2Sequestered);
 
@@ -49,7 +49,7 @@ export function App() {
             <span className="text-2xl md:text-3xl">
               tons of CO<sub>2</sub> sequestered
             </span>
-            <span className="text-lg md:text-xl">
+            <span className="text-base md:text-lg">
               from {formattedTotalMassInTonnes} tons of Sargassum (0.14 tonnes
               CO<sub>2</sub>/wet tonne Sargassum)
             </span>
@@ -57,10 +57,13 @@ export function App() {
           <form className="mt-6 grid grid-cols-1 gap-8 accent-sky-100">
             <label className="w-full max-w-lg">
               <span className="block text-lg font-semibold">
-                Average mat thickness in cm: {thickness} cm
+                <span className="text-white/75">
+                  Average mat thickness in cm:
+                </span>{" "}
+                {thickness} cm
               </span>
               <input
-                className="h-8 w-full"
+                className="h-2 w-full appearance-none rounded-full bg-sky-600"
                 type="range"
                 min={7}
                 max={80}
@@ -70,10 +73,13 @@ export function App() {
             </label>
             <label className="w-full max-w-lg">
               <span className="block text-lg font-semibold">
-                Average wet weight per m<sup>2</sup> in kg: {weight} kg
+                <span className="text-white/75">
+                  Average wet weight per m<sup>2</sup> in kg:
+                </span>{" "}
+                {weight} kg
               </span>
               <input
-                className="h-8 w-full"
+                className="h-2 w-full appearance-none rounded-full bg-sky-600"
                 type="range"
                 min={1.7}
                 max={14}
@@ -84,13 +90,16 @@ export function App() {
             </label>
             <label className="w-full max-w-lg">
               <span className="block text-lg font-semibold">
-                Farm size in km<sup>2</sup>: {size}km<sup>2</sup>
+                <span className="text-white/75">
+                  Farm size in km<sup>2</sup>:
+                </span>{" "}
+                {size}km<sup>2</sup>
               </span>
               <input
-                className="h-8 w-full"
+                className="h-2 w-full appearance-none rounded-full bg-sky-600"
                 type="range"
                 min={1}
-                max={60000}
+                max={80000}
                 step={1}
                 value={size}
                 onChange={handleSizeChange}
